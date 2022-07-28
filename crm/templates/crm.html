@@ -1,0 +1,88 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+    <script src="https://kit.fontawesome.com/fe7705c06f.js" crossorigin="anonymous"></script>
+    <title>Contact</title>
+  </head>
+  <body>
+    <div class="container ">
+          <h1 class="mt-2">Contact <i class="fa-solid fa-angle-up"></i></h1>
+          <hr class="mt-0 mb-4">
+          <form method="post" class="container-form" action="{% url 'crm_form' %}">
+            <section class="cor">
+              {% csrf_token %}
+              <div class="form-group w-50">
+                <label for="{{form.phone.name}}">Phone</label>
+                <input name="{{form.phone.name}}"type="phone" class="form-control" id="id_phone" >
+              </div>
+              <div class="form-group w-50">
+                  <label for="{{form.mobile.name}}">Mobile</label>
+                  <input name="{{form.mobile.name}}"type="phone" class="form-control" id="id_mobile" >
+              </div>
+              <div class="form-group w-50">
+                  <label for="{{form.fax.name}}">Fax</label>
+                  <input name="{{form.fax.name}}"type="number" class="form-control" id="id_fax" >
+              </div>
+            </section>
+            
+            <section class="extra">
+                <div class="info-left">
+                  <h3>More 
+                    information <i class="fa-solid fa-angle-up"></i>
+                  </h3>
+                    <div class="form-group">
+                        <label for="{{form.lead_type.name}}">Lead Type</label>
+                        <input name="{{form.lead_type.name}}" class="form-control" id="id_lead_type" >
+                      </div>
+                      <div class="form-group">
+                          <label for="{{form.market_segment.name}}">Market Segment</label>
+                          <input name="{{form.market_segment.name}}" class="form-control" id="id_market_segment" >
+                      </div>
+                      <div class="form-group">
+                          <label for="{{form.industry.name}}">Industry</label>
+                          <input name="{{form.industry.name}}"type="number" class="form-control" id="id_industry" >
+                      </div>
+                      <div class="form-group">
+                          <label for="{{form.request_type.name}}">Request Type</label>
+                          <input name="{{form.request_type.name}}"type="number" class="form-control" id="id_request_type" >
+                      </div>
+                </div>
+                <div class="info-right">
+                    <div class="form-group">
+                        <label for="{{form.company.name}}">Company</label>
+                        <input name="{{form.company.name}}" class="form-control" id="id_company}}" >
+                      </div>
+                      <div class="form-group">
+                          <label for="{{form.territory.name}}">Territory</label>
+                          <input name="{{form.territory.name}}" class="form-control" id="id_territory" >
+                      </div>
+                      <div class="form-group">
+                          <label for="{{form.print_language.name}}">Print Language</label>
+                          <input name="{{form.print_language.name}}" class="form-control" id="id_print_language" >
+                      </div>
+                      <section class="checkboxes">
+                        <div class="form-check">
+                          <input class="form-check-input" name="{{form.subscribed.name}}" type="checkbox" value="" id="defaultCheck2" disabled>
+                          <label class="form-check-label" for="{{form.subscribed.name}}">
+                            Subscribed
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" name="{{form.blog_subscribed.name}}" type="checkbox" value="" id="id_blog_subscribed" disabled>
+                          <label class="form-check-label" for="{{form.blog_subscribed.name}}">
+                            Blog Subscribed
+                          </label>
+                        </div>
+                      </section>
+                </div>
+            </section>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+  </body>
+</html>
